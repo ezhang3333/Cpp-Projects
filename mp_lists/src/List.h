@@ -24,7 +24,8 @@ class List {
      * encapsulation---the end user does not need to know our node-based
      * implementation details.
      */
-    class ListNode {
+    class ListNode 
+    {
       public:
         /**
          * Default ListNode constructor.

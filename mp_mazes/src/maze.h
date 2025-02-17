@@ -26,7 +26,7 @@
  * - UP: Move upward (Equivalent: -1 to the y coordinate) (Has value 3)
  */
 enum Direction {
-  RIGHT = 0,
+  RIGHT = 0,  
   DOWN = 1,
   LEFT = 2,
   UP = 3
@@ -174,5 +174,10 @@ public:
    */
   cs225::PNG *drawMazeWithSolution(int start);
 
+
+  private: 
+    int width_;
+    int height_;
+    std::vector<unsigned char> maze_;
 
 };

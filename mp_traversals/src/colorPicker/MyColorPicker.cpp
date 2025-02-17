@@ -3,6 +3,7 @@
 
 #include "ColorPicker.h"
 #include "MyColorPicker.h"
+#include <cmath>
 
 using namespace cs225;
 
@@ -10,7 +11,13 @@ using namespace cs225;
  * Picks the color for pixel (x, y).
  * Using your own algorithm
  */
-HSLAPixel MyColorPicker::getColor(unsigned x, unsigned y) {
-  /* @todo [Part 3] */
-  return HSLAPixel();
+
+MyColorPicker::MyColorPicker(double hueStart, double hueStep, double saturation, double lightness) 
+    : hueStart_(hueStart), hueStep_(hueStep), saturation_(saturation), lightness_(lightness) {}
+
+HSLAPixel MyColorPicker::getColor(unsigned x, unsigned y)
+{
+  double hue = hueStart_ + (x+y) * hueStep_;
+  hue = fmod(hue, 360.0);
+  return HSLAPixel(hue, saturation_, lightness_);  
 }

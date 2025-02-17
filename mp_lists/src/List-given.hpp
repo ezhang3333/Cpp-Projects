@@ -75,7 +75,8 @@ List<T>::~List() {
  * @return The second list created from the split.
  */
 template <typename T>
-List<T> List<T>::split(int splitPoint) {
+List<T> List<T>::split(int splitPoint) 
+{
     if (splitPoint > length_)
         return List<T>();
 

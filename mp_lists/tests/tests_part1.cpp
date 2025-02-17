@@ -97,6 +97,8 @@ TEST_CASE("List::split simple", "[weight=5][part=1][valgrind]") {
     List<int> slist = list.split(2);
     stringstream s1, s2;
 
+
+
     list.print(s1);
     slist.print(s2);
 

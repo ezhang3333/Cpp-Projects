@@ -9,6 +9,8 @@
 
 #include "Image.h"
 
+using namespace std;
+
 /**
  * Represents an arrangement of many sticker that is output as a single Image
  * when the user calls render().
@@ -18,11 +20,18 @@ class StickerSheet
 private:
   // Add private variables and helper functions as needed, here.
   // You MUST use a vector to store the sticker layers
+  vector<Image*> StickerVector;
+  vector<int> xCoordinates;
+  vector<int> yCoordinates;
+  Image basePicture;
+
+
 public:
   /**
    * Add any constructors/destructors you may need based on your
    * class design for StickerSheet.
    */
+
 
   /**
    * Initializes this StickerSheet with a deep copy of the base picture.

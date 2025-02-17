@@ -6,6 +6,12 @@
 #include <vector>
 #include <array>
 #include <iostream>
+#include "puzzle.h"
+#include <queue>
+#include <unordered_set>
+#include <map>
+#include <set>
+#include <functional>
 
 class PuzzleState {
 public:
@@ -94,6 +100,8 @@ public:
 
 
 private:
+    std::array<char, 16> state_; // Internal representation of the puzzle state
+    int findEmptyTile() const; // Helper function to find the empty tile position
 };
 
 /**

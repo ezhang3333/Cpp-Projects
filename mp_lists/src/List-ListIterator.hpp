@@ -1,7 +1,7 @@
 
-class ListIterator : public std::iterator<std::bidirectional_iterator_tag, T> {
+class ListIterator : public std::iterator<std::bidirectional_iterator_tag, T> 
+{
   private:
-    // @TODO: graded in mp_lists part 1
     ListNode* position_;
 
   public:
@@ -10,45 +10,52 @@ class ListIterator : public std::iterator<std::bidirectional_iterator_tag, T> {
 
 
     // Pre-Increment, ++iter
-    ListIterator& operator++() {
-        // @TODO: graded in mp_lists part 1
+    ListIterator& operator++() 
+    {
+        position_ = position_->next;        
         return *this;
     }
     
     // Post-Increment, iter++
-    ListIterator operator++(int) {
-        // @TODO: graded in mp_lists part 1
+    ListIterator operator++(int) 
+    {
         ListNode* temp = position_;
         position_ = position_->next;
-        return ListIterator(NULL);
+        return ListIterator(temp);
     }
 
     // Pre-Decrement, --iter
-    ListIterator& operator--() {
-        // @TODO: graded in mp_lists part 1
+    ListIterator& operator--() 
+    {
+        if(position_ != NULL) position_ = position_->prev;
         return *this;
     }
 
     // Post-Decrement, iter--
-    ListIterator operator--(int) {
-        // @TODO: graded in mp_lists part 1
-        return ListIterator();
+    ListIterator operator--(int)
+    {
+        ListNode* temp = position_;
+        if(position_ != NULL) position_ = position_->prev;
+        return ListIterator(temp);
     }
 
-    bool operator!=(const ListIterator& rhs) {
-        // @TODO: graded in mp_lists part 1
-        return false;
+    bool operator!=(const ListIterator& rhs) 
+    {
+        return this->position_ != rhs.position_;
     }
 
-    bool operator==(const ListIterator& rhs) {
-        return !(*this != rhs);
+    bool operator==(const ListIterator& rhs) 
+    {
+        return this->position_ == rhs.position_;
     }
 
-    const T& operator*() {
+    const T& operator*() 
+    {
         return position_->data;
     }
 
-    const T* operator->() {
+    const T* operator->() 
+    {
         return &(position_->data);
     }
 };

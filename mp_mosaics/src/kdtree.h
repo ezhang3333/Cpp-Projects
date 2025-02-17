@@ -92,6 +92,11 @@ class KDTree
      */
     KDTree(const vector<Point<Dim>>& newPoints);
 
+    void clear(KDTreeNode* subroot);
+    KDTreeNode* buildTree(vector<Point<Dim>>& points, int left, int right, int depth);
+    KDTreeNode* copy(KDTreeNode* subroot);
+    Point<Dim> findNearestNeighborHelper(const Point<Dim>& query, KDTreeNode* node, int depth) const;
+
 
     /**
      * Copy constructor for KDTree.
@@ -286,6 +291,7 @@ bool smallerDimVal(const Point<Dim>& first, const Point<Dim>& second,
   */
 template <typename RandIter, typename Comparator>
 void select(RandIter begin, RandIter end, RandIter k, Comparator cmp);
+
 
 
 #include "kdtree.hpp"
